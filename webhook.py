@@ -9,10 +9,11 @@ class Handler(BaseHTTPRequestHandler):
     server_version = 'WebhookHandler/1.0'
 
     def do_GET(self):
-        time.sleep(1.5)
-        bot.set_webhook(url='https://' + os.environ['VERCEL_URL'] + '/webhook')
-        self.send_response(200)
-        self.end_headers()
+    time.sleep(1.5)
+    # Defina a URL do webhook diretamente
+    bot.set_webhook(url='https://dark-assistente-ia-telegram.vercel.app/webhook')
+    self.send_response(200)
+    self.end_headers()
 
     def do_POST(self):
         cl = int(self.headers['Content-Length'])
